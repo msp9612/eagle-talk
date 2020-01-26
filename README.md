@@ -1,7 +1,7 @@
-# eagle-talk
+# Eagle Talk
 ##### Created by Matt Petrower
 
-[Text goes here]
+Eagle Talk is a web app that seamlessly directs the flow of conversation among a group of people. Not for use by birds.
 
 [Github repository](https://github.com/msp9612/eagle-talk)
 
