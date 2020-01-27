@@ -9,12 +9,6 @@ import { Alert, ListGroup } from 'react-bootstrap';
 
 const RoomQueue = props => {
 	return (
-		// <Jumbotron className='text-center'>
-		// 	<Container>
-		// 		<h1>Room Name</h1>
-		// 		<p>Room Code</p>
-		// 	</Container>
-		// </Jumbotron>
 		<React.Fragment>
 			<Alert className='text-center' variant='success'>
 				<p>Speaker:</p>
