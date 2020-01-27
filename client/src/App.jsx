@@ -1,38 +1,27 @@
 /* Dependencies */
 /* -------------------------------*/
 
-// import React from 'react';
-// import { Container, Row, Col } from 'react-bootstrap';
-// import Nav from './components/Nav';
-// import Score from './components/Score';
-// import GameBoard from './components/GameBoard';
-// import PlayAgain from './components/PlayAgain';
-// import './AppStyles.scss';
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import RoomJumbotron from './components/RoomJumbotron';
+import RoomQueue from './components/RoomQueue';
 
 /* MAIN */
 /* -------------------------------*/
 
-// export default () => (
-// 	<React.Fragment>
-// 		<Nav />
-// 		<Container className='mt-1' fluid={true}>
-// 			<Row>
-// 				<Col>
-// 					<Score />
-// 				</Col>
-// 			</Row>
-// 			<Row className='mt-4'>
-// 				<Col>
-// 					<GameBoard />
-// 				</Col>
-// 			</Row>
-// 		</Container>
-// 		<PlayAgain />
-// 	</React.Fragment>
-// );
 export default () => (
 	<React.Fragment>
-		<h1>Eagle Talk testing: App.jsx</h1>
+		<Container className='mt-1' fluid={false}>
+			<Row>
+				<Col>
+					<RoomJumbotron />
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<RoomQueue />
+				</Col>
+			</Row>
+		</Container>
 	</React.Fragment>
 );
