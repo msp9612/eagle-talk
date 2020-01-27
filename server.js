@@ -2,6 +2,9 @@
 /* -------------------------------*/
 
 const express = require('express');
+const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 const mongoose = require('mongoose');
 const routes = require('./routes');
 
@@ -9,7 +12,6 @@ const routes = require('./routes');
 /* -------------------------------*/
 
 const PORT = process.env.PORT || 3001;
-const app = express();
 
 /* MAIN */
 /* -------------------------------*/
@@ -30,6 +32,17 @@ mongoose.connect('mongodb://localhost/eagle_talk_db', {
 	useUnifiedTopology: true,
 	useCreateIndex: true,
 	useFindAndModify: false,
+});
+
+// Socket.io
+//Whenever someone connects this gets executed
+io.on('connection', function(socket) {
+	console.log('A user connected');
+
+	//Whenever someone disconnects this piece of code executed
+	socket.on('disconnect', function() {
+		console.log('A user disconnected');
+	});
 });
 
 app.listen(PORT, () => {
