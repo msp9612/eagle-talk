@@ -3,8 +3,7 @@
 
 const express = require('express');
 const app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const socketio = require('socket.io');
 const mongoose = require('mongoose');
 const routes = require('./routes');
 
@@ -34,17 +33,18 @@ mongoose.connect('mongodb://localhost/eagle_talk_db', {
 	useFindAndModify: false,
 });
 
+// API server
+const server = app.listen(PORT, () => {
+	console.log(`🌎 ==> API server now on port ${PORT}!`);
+});
+
 // Socket.io
+const io = socketio(server);
 //Whenever someone connects this gets executed
 io.on('connection', function(socket) {
 	console.log('A user connected');
-
 	//Whenever someone disconnects this piece of code executed
 	socket.on('disconnect', function() {
 		console.log('A user disconnected');
 	});
-});
-
-app.listen(PORT, () => {
-	console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
