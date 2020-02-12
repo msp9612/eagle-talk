@@ -40,11 +40,15 @@ const server = app.listen(PORT, () => {
 
 // Socket.io
 const io = socketio(server);
-//Whenever someone connects this gets executed
+// A user connects to the server
 io.on('connection', function(socket) {
-	console.log('A user connected');
-	//Whenever someone disconnects this piece of code executed
+	let name;
+	socket.emit('enterName');
+	socket.on('nameEntered', function(data) {
+		name = data;
+		io.sockets.emit('userConnected', name + ' has connected');
+	});
 	socket.on('disconnect', function() {
-		console.log('A user disconnected');
+		socket.broadcast.emit('userDisconnected', name + ' has disconnected');
 	});
 });
