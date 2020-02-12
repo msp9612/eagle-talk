@@ -2,7 +2,7 @@
 /* -------------------------------*/
 
 import React from 'react';
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Navbar, Nav, Button, NavDropdown } from 'react-bootstrap';
 
 /* Global variables and instances */
 /* -------------------------------*/
@@ -20,6 +20,11 @@ const RoomNavbar = props => {
 				/> */}
 				Eagle Talk
 			</Navbar.Brand>
+			<NavDropdown title='Master' disabled>
+				<NavDropdown.Item>Action 1</NavDropdown.Item>
+				<NavDropdown.Item>Action 2</NavDropdown.Item>
+				<NavDropdown.Item>Action 3</NavDropdown.Item>
+			</NavDropdown>
 			<Nav className='mr-auto'>{/* <Nav>Room Code: XXXXXXXX</Nav> */}</Nav>
 			<Button variant='danger'>Exit Room</Button>
 		</Navbar>
